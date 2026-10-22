@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
 export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 32px 24px;
-  padding: 24px;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  /* vertical padding leaves room for the poster hover lift/shadow */
+  padding: 16px 24px 24px;
+
+  > * {
+    flex: 0 0 200px;
+  }
 `

@@ -5,7 +5,16 @@ export type Movie = {
   poster_path: string | null
   release_date: string
   vote_average: number
+  popularity: number
 }
+
+export enum SortType {
+  POPULARITY = 'popularity',
+  TITLE = 'title',
+  VOTE = 'vote'
+}
+
+export type SortBy = SortType.POPULARITY | SortType.TITLE | SortType.VOTE
 
 export type DiscoverResponse = {
   page: number
