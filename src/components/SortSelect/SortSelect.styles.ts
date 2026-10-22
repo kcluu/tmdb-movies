@@ -19,9 +19,7 @@ export const Select = styled.select`
   padding: 8px 32px 8px 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  background: #fff
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555'/%3E%3C/svg%3E")
-    no-repeat right 12px center;
+  background: #fff;
   font: inherit;
   font-weight: 400;
   cursor: pointer;

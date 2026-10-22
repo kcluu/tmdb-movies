@@ -3,3 +3,5 @@ export const BASE_URL = 'https://api.themoviedb.org/3/discover/movie'
 
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w342'
 export const MOVIE_URL = 'https://api.themoviedb.org/3/movie'
+export const GENRES_URL = 'https://api.themoviedb.org/3/genre/movie/list'
+export const SEARCH_PERSON_URL = 'https://api.themoviedb.org/3/search/person'

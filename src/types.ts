@@ -30,3 +30,42 @@ export type MovieDetailsResponse = Movie & {
     }[]
   }
 }
+
+export type Genre = {
+  id: number
+  name: string
+}
+
+export type GenresResponse = {
+  genres: Genre[]
+}
+
+export type Person = {
+  id: number
+  name: string
+  known_for_department: string
+}
+
+export type SearchPersonResponse = {
+  results: Person[]
+}
+
+export enum Certification {
+  G = 'G',
+  PG = 'PG',
+  PG_13 = 'PG-13',
+  R = 'R',
+  NC_17 = 'NC-17'
+}
+
+export type Filters = {
+  genreId: number | null
+  certification: Certification | null
+  castQuery: string
+}
+
+export type MovieQuery = {
+  genreId: number | null
+  certification: Certification | null
+  castId: number | null
+}
