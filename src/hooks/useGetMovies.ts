@@ -3,10 +3,10 @@ import { API_KEY, BASE_URL } from '../api'
 import type { DiscoverResponse } from '../types'
 
 export const useGetMovies = () => {
-  // TODO: add filter mechanism
   const params = new URLSearchParams({
     api_key: API_KEY,
-    page: '1'
+    page: '1',
+    primary_release_year: '2026'
   })
 
   const { data, error, isLoading } = useSWR<DiscoverResponse, Error>(
