@@ -66,13 +66,25 @@ export const NoPoster = styled.div`
 `
 
 export const Overview = styled.p`
+  max-height: 65%;
+  min-height: 0;
   margin: 0;
+  padding-right: 6px;
   font-size: 13px;
   line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.4);
+  }
 `
 
 export const Footer = styled.div`
