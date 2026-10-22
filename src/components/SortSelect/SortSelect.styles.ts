@@ -9,24 +9,50 @@ export const Header = styled.header`
 export const Label = styled.label`
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 10px;
+  font-size: 13px;
   font-weight: 600;
+  color: #555;
+`
+
+// draws the dropdown chevron, since appearance: none removes the native one
+export const SelectWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+  }
 `
 
 export const Select = styled.select`
   appearance: none;
-  padding: 8px 32px 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  height: 38px;
+  min-width: 140px;
+  padding: 0 36px 0 12px;
+  border: 1px solid #dcdce0;
+  border-radius: 8px;
   background: #fff;
+  color: #1a1a1a;
   font: inherit;
+  font-size: 14px;
   font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
   cursor: pointer;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
   &:hover {
-    border-color: #999;
+    border-color: #b5b5bb;
   }
 
   &:focus-visible {

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 
 const SPEED = 40 // px per second
 
+// Scrolls an element horizontally until it reaches the end
 export const useAutoScroll = <T extends HTMLElement>(paused: boolean) => {
   const ref = useRef<T>(null)
 
@@ -10,22 +11,22 @@ export const useAutoScroll = <T extends HTMLElement>(paused: boolean) => {
     if (!el || paused) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
+    // 1px tolerance since scrollLeft can land a fraction short of the max
+    const hasScrolledToEnd = () => el.scrollLeft >= el.scrollWidth - el.clientWidth - 1
+    if (hasScrolledToEnd()) return
+
     let position = el.scrollLeft
-    let direction = 1
     let last = performance.now()
     let frame: number
 
     const step = (now: number) => {
       const max = el.scrollWidth - el.clientWidth
-      position += direction * SPEED * ((now - last) / 1000)
+      position += SPEED * ((now - last) / 1000)
       last = now
 
       if (position >= max) {
-        position = max
-        direction = -1
-      } else if (position <= 0) {
-        position = 0
-        direction = 1
+        el.scrollLeft = max
+        return
       }
 
       el.scrollLeft = position

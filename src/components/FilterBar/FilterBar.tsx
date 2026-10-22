@@ -1,6 +1,6 @@
 import { Certification, type Filters, type Genre } from '../../types'
-import { Label, Select } from '../SortSelect/SortSelect.styles'
-import { Bar, ClearButton, Field, Hint, SearchInput } from './FilterBar.styles'
+import { Select, SelectWrapper } from '../SortSelect/SortSelect.styles'
+import { Bar, ClearButton, Field, FieldLabel, Hint, SearchInput } from './FilterBar.styles'
 
 type FilterBarProps = {
   filters: Filters
@@ -32,43 +32,47 @@ export const FilterBar = ({
   return (
     <Bar>
       <Field>
-        <Label>
+        <FieldLabel>
           Genre
-          <Select
-            value={filters.genreId ?? ''}
-            onChange={(e) => update({ genreId: e.target.value ? Number(e.target.value) : null })}
-          >
-            <option value="">All</option>
-            {genres.map((genre) => (
-              <option key={genre.id} value={genre.id}>
-                {genre.name}
-              </option>
-            ))}
-          </Select>
-        </Label>
+          <SelectWrapper>
+            <Select
+              value={filters.genreId ?? ''}
+              onChange={(e) => update({ genreId: e.target.value ? Number(e.target.value) : null })}
+            >
+              <option value="">All</option>
+              {genres.map((genre) => (
+                <option key={genre.id} value={genre.id}>
+                  {genre.name}
+                </option>
+              ))}
+            </Select>
+          </SelectWrapper>
+        </FieldLabel>
       </Field>
 
       <Field>
-        <Label>
+        <FieldLabel>
           Rating
-          <Select
-            value={filters.certification ?? ''}
-            onChange={(e) =>
-              update({ certification: (e.target.value as Certification) || null })
-            }
-          >
-            <option value="">All</option>
-            {Object.values(Certification).map((cert) => (
-              <option key={cert} value={cert}>
-                {cert}
-              </option>
-            ))}
-          </Select>
-        </Label>
+          <SelectWrapper>
+            <Select
+              value={filters.certification ?? ''}
+              onChange={(e) =>
+                update({ certification: (e.target.value as Certification) || null })
+              }
+            >
+              <option value="">All</option>
+              {Object.values(Certification).map((cert) => (
+                <option key={cert} value={cert}>
+                  {cert}
+                </option>
+              ))}
+            </Select>
+          </SelectWrapper>
+        </FieldLabel>
       </Field>
 
       <Field>
-        <Label>
+        <FieldLabel>
           Cast
           <SearchInput
             type="search"
@@ -76,7 +80,7 @@ export const FilterBar = ({
             value={filters.castQuery}
             onChange={(e) => update({ castQuery: e.target.value })}
           />
-        </Label>
+        </FieldLabel>
         {castHint && <Hint aria-live="polite">{castHint}</Hint>}
       </Field>
 

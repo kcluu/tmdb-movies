@@ -7,6 +7,7 @@ import { useDebouncedValue } from './hooks/useDebouncedValue'
 import { MovieGrid } from './components/MovieGrid'
 import { SortSelect } from './components/SortSelect'
 import { FilterBar } from './components/FilterBar'
+import { PageTitle } from './components/PageTitle'
 
 export const App = () => {
   const [sortBy, setSortBy] = useState<SortBy>(SortType.VOTE)
@@ -41,6 +42,7 @@ export const App = () => {
 
   return (
     <>
+      <PageTitle />
       <FilterBar
         filters={filters}
         genres={genres}
